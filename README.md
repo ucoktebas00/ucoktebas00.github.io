@@ -42,7 +42,7 @@ Berdasarkan pernyataan di atas,saya akan membuat sebuah predictive modelling den
 ## Data Understanding
     Dataset yang saya gunakan adalah dataset Ford Car Price, Dataset ini memiliki  17.966 Sampel data dengan berbagai karakteristik harga yang ada. Karakteristik pada mobil ford yang berpengaruh pada harga adalah model, tahun pembuatan (year), transmisi (transmission), jarak tempuh (mileage), jenis bahan bakar (fuelType), pajak (tax), mpg (penggunaan bahan bakar), Ukuran mesin (engineSize). jadi 8 fitur ini akan saya digunakan untuk menemukan pola pada data sedangkan harga merupakan fitur target.
      - Pada kasus ini terdapat satu kolom yang mempunyai data data oulier yaitu kolom mileage. Untuk menanggani hal tersebut saya menngunakan metode IQR untuk membersihkan tabel/dataset dari outlier.
-      ![outlier](https://user-images.githubusercontent.com/64059031/202162425-c68a133c-266b-43a6-b0da-4b8ebf4bd0ff.png)
+![outlier](https://user-images.githubusercontent.com/64059031/202162425-c68a133c-266b-43a6-b0da-4b8ebf4bd0ff.png)
 
 * DataSet dapat Diunduh pada Tautan Berikut
 https://www.kaggle.com/datasets/adhurimquku/ford-car-price-prediction
@@ -53,7 +53,7 @@ https://www.kaggle.com/datasets/adhurimquku/ford-car-price-prediction
   * Price -> Harga Mobil dalam Dollar Amerika ($)
   * Transmission -> transmisi yang digunakan seperti Automatic,Manual,dan Semi-Auto
   * Mileage -> Jarak tempuh mobil
-  * Fuel Type -> Jenis bahan bakar yang digunakan seperti Petrol, Diesel, Hybrid, Electric dan lainnya
+  * Fuel Type -> Jenis bahan bakar yang digunakan seperti Petrol, Diesel, Hybrid,       Electric dan lainnya
   * Tax -> Pajak tahunan sebuah mobil
   * Mpg -> Konsumsi bahan bakar yang digunakan 
   * Engine Size -> Ukuran Mesin pada Mobil
@@ -68,25 +68,20 @@ Ada beberapa Tahapan Yang di lakukan untuk memahami dataset dengan Exploratory D
 * Analisis Data (Mendeskripsikan Variabel)
   Data analisis merupakan proses menganalisa karakteristik, menemukan pola, anomali dan memeriksa asumsi pada data, Yaitu untuk mengetahui beberapa hal berikut : 
     * Variabel pada data
-      Untuk mengetahui variabel apa saja yang ada pada data bisa dengan menuliskan kode nama_variabel.info() maka akan tampil variabel beserta type datanya
-      * Terdapat 4 kolom dengan tipe data int64 yaitu kolom year, price, mileage, dan tax .
-      * Terdapat 3 kolom dengan tipe data object yaitu kolom model, transmission dan fuelType.
-      * Kemudian Terdapat 2 kolom dengan tipe data float64 yaitu kolom mpg dan engineSize .
+      Untuk mengetahui variabel apa saja yang ada pada data bisa dengan menuliskan      kode nama_variabel.info() maka akan tampil variabel beserta type datanya
+    * Terdapat 4 kolom dengan tipe data int64 yaitu kolom year, price, mileage, dan      tax .
+    * Terdapat 3 kolom dengan tipe data object yaitu kolom model, transmission dan      fuelType.
+    * Kemudian Terdapat 2 kolom dengan tipe data float64 yaitu kolom mpg dan            engineSize .
     Terdapat 17.966 baris data pada dataset yang digunakan terdiri dari 9 kolom .
+    ![info_and_head](https://user-images.githubusercontent.com/64059031/202169534-6a8405bf-275a-4ac7-acb2-6939232e9396.jpg)
+
+    
+  
 
 * Bagaimana distribusi variabel dalam dataset
       Untuk mengetahui distribusi variabel kita perlu menggunakan baris kode nama_variabel.describe() maka akan menampilkan informasi statistik pada masing-masing kolom, Seperti : 
-        ![nama_varibel.describe](https://drive.google.com/file/d/1bcvGg_Rh4KU9oclFLq3ABV82EZBKqOUf/view?usp=share_link.jpg "deskripsi tabel")
-        |index|year|price|mileage|tax|mpg|engineSize|
-        |---|---|---|---|---|---|---|
-        |count|17966\.0|17966\.0|17966\.0|17966\.0|17966\.0|17966\.0|
-        |mean|2016\.8664699988867|12279\.534843593454|23362\.608760992985|113\.32945563842814|57\.90697985082934|1\.3508070800400758|
-        |std|2\.050335978486793|4741\.343657354173|19472\.054349105154|62\.01245619380197|10\.125695709164098|0\.4323672724006969|
-        |min|1996\.0|495\.0|1\.0|0\.0|20\.8|0\.0|
-        |25%|2016\.0|8999\.0|9987\.0|30\.0|52\.3|1\.0|
-        |50%|2017\.0|11291\.0|18242\.5|145\.0|58\.9|1\.2|
-        |75%|2018\.0|15299\.0|31060\.0|145\.0|65\.7|1\.5|
-        |max|2060\.0|54995\.0|177644\.0|580\.0|201\.8|5\.0|
+        ![describe](https://user-images.githubusercontent.com/64059031/202162804-e6edcafe-d329-4d9b-8703-fc3faa1e692d.png)
+
       * Count  adalah jumlah sampel pada data.
       * Mean adalah nilai rata-rata.
       * Std adalah standar deviasi.
@@ -101,25 +96,25 @@ Ada beberapa Tahapan Yang di lakukan untuk memahami dataset dengan Exploratory D
     
     Baris kode yang digunakan untuk melakukan pengecekan pada missing Value
 
-    ['cars_model = (data.model == 0).sum()
-    trans = (data.transmission == 0).sum()
-    fuel = (data.fuelType == 0).sum()
-    taxes = (data.tax == 0).sum()
-    engine = (data.engineSize == 0).sum()
-    
-    print ("nilai 0 kolom model ", cars_model)
-    print ("nilai 0 kolom transmission", trans)
-    print ("nilai 0 kolom fuelType", fuel)
-    print ("nilai 0 kolom tax", taxes)
-    print ("nilai 0 kolom engine Size", engine)']
+                cars_model = (data.model == 0).sum()
+                trans = (data.transmission == 0).sum()
+                fuel = (data.fuelType == 0).sum()
+                taxes = (data.tax == 0).sum()
+                engine = (data.engineSize == 0).sum()
+
+                print ("nilai 0 kolom model ", cars_model)
+                print ("nilai 0 kolom transmission", trans)
+                print ("nilai 0 kolom fuelType", fuel)
+                print ("nilai 0 kolom tax", taxes)
+                print ("nilai 0 kolom engine Size", engine)
 
     Dari baris kode diatas maka akan mendapatkan hasil sebagai berikut : 
 
-            [    nilai 0 kolom model  0
+                nilai 0 kolom model  0
                 nilai 0 kolom transmission 0
                 nilai 0 kolom fuelType 0
                 nilai 0 kolom tax 2153
-                nilai 0 kolom engine Size 51    ]
+                nilai 0 kolom engine Size 51    
 
 * Apakah ada fitur yang tidak berguna
     Tidak ada fitur yang tidak berguna atau tidak digunakan dalam dataset semua fitur memiliki kolerasi yang cukup kuat dan semua fitur kategori mempengaruhi harga dengan cukup kuat. 
@@ -138,9 +133,13 @@ Ada beberapa Tahapan Yang di lakukan untuk memahami dataset dengan Exploratory D
   * IQR Method
   Pada kasus ini, kita akan mendeteksi outliers dengan teknik visualisasi data (boxplot), Kemudian untuk menangani outliers kita akan menggunakan teknik IQR method. IQR adalah singkatan dari Inter Quartile Range, yaitu Kuartil dari suatu populasi adalah tiga nilai yang membagi distribusi data menjadi empat sebaran. Seperempat dari data berada di bawah kuartil pertama (Q1), setengah dari data berada di bawah kuartil kedua (Q2), dan tiga perempat dari data berada di kuartil ketiga (Q3). Dengan demikian interquartile range atau IQR = Q3 - Q1.
 
+![metode_iqr](https://user-images.githubusercontent.com/64059031/202168058-99e3570d-9352-4239-b616-ebfff3222475.jpg)
+
+![hasil_IQR](https://user-images.githubusercontent.com/64059031/202168091-7acc8c3a-e45d-44e3-bd20-c9a32075ef9d.jpg)
+
   Setelah melakukan pembersihan outliers maka output yang dihasilkan adalah :
   * DataSet sudah bersih dari Outliers dan memiliki 8.401 sampel
-
+ 
 * Univariate Analysis
   Melakukan proses analisis data dengan teknik Univariate EDA, yang pertama kita perlu membagi 2 fitur, antara fitur numerik dan fitur category 
   * num_data = ['price','mileage','tax', 'mpg','enginesize']
@@ -168,6 +167,9 @@ Proses data preparation merupakan suatu tahapan yang cukup penting dalam proses 
   Membagi dataset menjadi data latih (train) dan data uji (test) merupakan hal yang harus kita lakukan sebelum membuat model, Kita perlu mempertahankan sebagian data yang ada untuk menguji seberapa baik generalisasi model terhadap data baru, Misalnya kita memiliki  100 juta sampel. Dengan proporsi pembagian 80:20 atau 80% data training dan 20% data testing, Dalam kasus proses pengujian ini sebenarnya kita cukup menggunakan 1-2% data atau sebanyak 100.000 hingga 200.000 sampel saja. 
 * Standarisasi.
   Standardisasi adalah teknik transformasi yang paling umum digunakan dalam tahap persiapan pemodelan, Untuk fitur numerik, kita tidak akan melakukan transformasi dengan one-hot-encoding,StandardScaler melakukan proses standarisasi fitur dengan mengurangkan mean (nilai rata-rata) kemudian membaginya dengan standar deviasi untuk menggeser distribusi,  StandardScaler menghasilkan distribusi dengan standar deviasi sama dengan 1 dan mean sama dengan 0, Sekitar 68% dari nilai akan berada di antara -1 dan 1, Fitur Standarisasi biasanya digunakan untuk menghindasi kebocoran data pada data uji  proses standarisasi mengubah nilai rata-rata (mean) menjadi 0 dan nilai standar deviasi menjadi 1.
+  
+  ![standarscaler](https://user-images.githubusercontent.com/64059031/202168533-58803eb4-ffc0-495e-9fbb-bfab5c7491d4.jpg)
+
 
 
 ## Modeling
@@ -177,23 +179,36 @@ Proses data preparation merupakan suatu tahapan yang cukup penting dalam proses 
       - max_depth: kedalaman atau panjang pohon.Ia merupakan ukuran seberapa banyak pohon dapat membelah (splitting) untuk membagi setiap node ke dalam jumlah pengamatan yang diinginkan.
       - random_state: digunakan untuk mengontrol random number generator yang digunakan. 
       - n-jobs: jumlah job (pekerjaan) yang digunakan secara paralel. Ia merupakan komponen untuk mengontrol thread atau proses yang berjalan secara paralel. n_jobs=-1 artinya semua proses berjalan secara paralel.
-* Model KNN(K-Nearest Neighbor) Meroakan algoritma yang sederhana dibandigkan dengan     algoritma lain, Algoritma KNN menggunakan kesamaan Fitur. untuk memprediksi         nilai dari setiap data yang baru, seperti setiap data baru diberikan nilai         berdasarkan seberapa mirip titik tersebut dalam set tiap pelatihan.
+      
+ ![Random_forest](https://user-images.githubusercontent.com/64059031/202168903-58713dc9-8aa9-4f14-ac59-0b38f06dcf28.jpg)
+
+
+* Model KNN(K-Nearest Neighbor) Meroakan algoritma yang sederhana dibandigkan dengan     algoritma lain, Algoritma KNN menggunakan kesamaan Fitur. untuk memprediksi nilai dari setiap data yang baru, seperti setiap data baru diberikan nilai berdasarkan seberapa mirip titik tersebut dalam set tiap pelatihan.
     * parameter yang digunakan :
       - n-neighbors : tetangga dan metric Euclidean untuk mengukur jarak antara titik, n-neighbors = 10.
+      
+![knn](https://user-images.githubusercontent.com/64059031/202169007-63496e99-a269-455e-b519-56658fcc4da4.jpg)
+
+      
 * Boosting Algorithm merupakan algoritna yang menggunakan teknik boosting bekerja       dengan membangun model dari data latih, Kemudian membuat model kedua yang           bertugas untuk memperbaiki kesalahan dari model pertama.
     * Parameter yang digunakan :
       - learning_rate: bobot yang diterapkan pada setiap regressor di masing-masing proses iterasi boosting.
       - random_state: digunakan untuk mengontrol random number generator yang digunakan.
+      
+![boost](https://user-images.githubusercontent.com/64059031/202169085-63d41a1e-4444-43c2-955a-c287df6dfbb5.jpg)
+
+
 
 **Kelebihan dan Kekurangan Algoritma Random Forest, KNN, dan Boosting algorithm**: 
-* **Random Forest**
+***Random Forest**
   - Kelebihan dari Model Random Forest, dapat digunakan untuk menyelesaikan masalah klasifikasi dan regresi, Random forest juga merupakan algoritma yang sering digunakan karena cukup sederhana tetapi memiliki stabilitas yang mumpuni.
   - Kekurangan algoritma random forest adalah pembelajaran bisa berjalan lambat, tergantung pada parameter yang digunakan dan tidak bisa memperbaiki model yang dihasilkan secara berulang
-* **KNN(K-Nearest Neighbor)**
+  
+***KNN(K-Nearest Neighbor)**
     - Kelebihan Algoritma KNN yaitu kuat dalammentraining data yang noisy, Algoritma ini juga sangat efektif jika datanya besar serta mudah diImplementasikan
     - Kekurangan Algoritma KNN perlu menentukan nilai parameter K,serta sangat sensitif pada data pencilan dan rentan pada variabel yang non-informatif
 
-**Mengapa tidak menggunakan Model KNN dan Boosting Agorithm**
+**Mengapa kita menggunakan Model KNN dan Boosting Agorithm**
     Untuk dapat memilih atau melakukan penyeleksian terhadap beberapa algoritma, saya menggunakan ketiga algoritma tersebut sebagai acuan untuk proses seleksi memilih algoritma model yang terbaik yang dapat digunakan pada data set yang car price.
 
 ## Evaluation
@@ -208,7 +223,9 @@ Hasil dari train dan test MSE sebagai berikut :
 |Boosting|5866\.5807833042045|6126\.817427970641|
 * plot bar evaluasi MSE
 
-![plot bar mse](https://drive.google.com/file/d/1KGNFGAdp9bU13j_Gmu0kvcrqgr1amvg1/view?usp=share_link "Bar MSE")
+![download1](https://user-images.githubusercontent.com/64059031/202170171-898fece2-31d8-48a0-80c7-d04ddd06554d.png)
+
+
 **MSE Atau Mean Squared Error**
 
 * Metrik MSE Atau Mean Squared Error yang menghitung jumlah selisih rata-rata nilai  sebenarnya dengan nilai prediksi, Sebelum menghitung Nilai MSE dalam model,sebaiknya melakukan proses scalling fitur numerik terlebih dahulu pada data uji baru melakukan proses scalling terhadap data latih untuk menghindari kebocoran data.
