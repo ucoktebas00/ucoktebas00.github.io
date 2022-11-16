@@ -133,8 +133,6 @@ Ada beberapa Tahapan Yang di lakukan untuk memahami dataset dengan Exploratory D
   * IQR Method
   Pada kasus ini, kita akan mendeteksi outliers dengan teknik visualisasi data (boxplot), Kemudian untuk menangani outliers kita akan menggunakan teknik IQR method. IQR adalah singkatan dari Inter Quartile Range, yaitu Kuartil dari suatu populasi adalah tiga nilai yang membagi distribusi data menjadi empat sebaran. Seperempat dari data berada di bawah kuartil pertama (Q1), setengah dari data berada di bawah kuartil kedua (Q2), dan tiga perempat dari data berada di kuartil ketiga (Q3). Dengan demikian interquartile range atau IQR = Q3 - Q1.
 
-![metode_iqr](https://user-images.githubusercontent.com/64059031/202168058-99e3570d-9352-4239-b616-ebfff3222475.jpg)
-
 ![hasil_IQR](https://user-images.githubusercontent.com/64059031/202168091-7acc8c3a-e45d-44e3-bd20-c9a32075ef9d.jpg)
 
   Setelah melakukan pembersihan outliers maka output yang dihasilkan adalah :
@@ -168,9 +166,6 @@ Proses data preparation merupakan suatu tahapan yang cukup penting dalam proses 
 * Standarisasi.
   Standardisasi adalah teknik transformasi yang paling umum digunakan dalam tahap persiapan pemodelan, Untuk fitur numerik, kita tidak akan melakukan transformasi dengan one-hot-encoding,StandardScaler melakukan proses standarisasi fitur dengan mengurangkan mean (nilai rata-rata) kemudian membaginya dengan standar deviasi untuk menggeser distribusi,  StandardScaler menghasilkan distribusi dengan standar deviasi sama dengan 1 dan mean sama dengan 0, Sekitar 68% dari nilai akan berada di antara -1 dan 1, Fitur Standarisasi biasanya digunakan untuk menghindasi kebocoran data pada data uji  proses standarisasi mengubah nilai rata-rata (mean) menjadi 0 dan nilai standar deviasi menjadi 1.
   
-  ![standarscaler](https://user-images.githubusercontent.com/64059031/202168533-58803eb4-ffc0-495e-9fbb-bfab5c7491d4.jpg)
-
-
 
 ## Modeling
 * Model random forest adalah salah satu Algoritma supervised learning karena            algoritma ini disusun dari banyak algoritma pohon(decision tree) yang pembagian     data dan fiturnya dipilih secara acak.
@@ -180,25 +175,16 @@ Proses data preparation merupakan suatu tahapan yang cukup penting dalam proses 
       - random_state: digunakan untuk mengontrol random number generator yang digunakan. 
       - n-jobs: jumlah job (pekerjaan) yang digunakan secara paralel. Ia merupakan komponen untuk mengontrol thread atau proses yang berjalan secara paralel. n_jobs=-1 artinya semua proses berjalan secara paralel.
       
- ![Random_forest](https://user-images.githubusercontent.com/64059031/202168903-58713dc9-8aa9-4f14-ac59-0b38f06dcf28.jpg)
-
 
 * Model KNN(K-Nearest Neighbor) Meroakan algoritma yang sederhana dibandigkan dengan     algoritma lain, Algoritma KNN menggunakan kesamaan Fitur. untuk memprediksi nilai dari setiap data yang baru, seperti setiap data baru diberikan nilai berdasarkan seberapa mirip titik tersebut dalam set tiap pelatihan.
     * parameter yang digunakan :
       - n-neighbors : tetangga dan metric Euclidean untuk mengukur jarak antara titik, n-neighbors = 10.
-      
-![knn](https://user-images.githubusercontent.com/64059031/202169007-63496e99-a269-455e-b519-56658fcc4da4.jpg)
-
-      
+       
 * Boosting Algorithm merupakan algoritna yang menggunakan teknik boosting bekerja       dengan membangun model dari data latih, Kemudian membuat model kedua yang           bertugas untuk memperbaiki kesalahan dari model pertama.
     * Parameter yang digunakan :
       - learning_rate: bobot yang diterapkan pada setiap regressor di masing-masing proses iterasi boosting.
       - random_state: digunakan untuk mengontrol random number generator yang digunakan.
-      
-![boost](https://user-images.githubusercontent.com/64059031/202169085-63d41a1e-4444-43c2-955a-c287df6dfbb5.jpg)
-
-
-
+     
 **Kelebihan dan Kekurangan Algoritma Random Forest, KNN, dan Boosting algorithm**: 
 ***Random Forest**
   - Kelebihan dari Model Random Forest, dapat digunakan untuk menyelesaikan masalah klasifikasi dan regresi, Random forest juga merupakan algoritma yang sering digunakan karena cukup sederhana tetapi memiliki stabilitas yang mumpuni.
